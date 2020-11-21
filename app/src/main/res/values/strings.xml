@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PACDesarrolloUF2</string>
+    <string name="ir_a_activity_2">Datos</string>
+    <string name="ir_a_activity_3">Servicios</string>
+    <string name="crear_tabla">Crear tabla</string>
+    <string name="introducir_datos">Introducir Datos</string>
+    <string name="visualizar_datos">Visualizar Datos</string>
+    <string name="volver">Volver</string>
+    <string name="parar_servicio">Parar Servicio</string>
+    <string name="iniciar_servicio">Iniciar Servicio</string>
+    <string name="t_tulo">Título</string>
+    <string name="autor">Autor</string>
+    <string name="edici_n">Edición</string>
+    <string name="guardar">Guardar</string>
+    <string name="todo">TODO</string>
+
+</resources>
