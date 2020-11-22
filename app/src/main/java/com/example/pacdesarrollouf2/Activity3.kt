@@ -2,6 +2,7 @@ package com.example.pacdesarrollouf2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+
 import kotlinx.android.synthetic.main.activity_2.buttonVolver
 import kotlinx.android.synthetic.main.activity_3.*
 
@@ -20,3 +21,4 @@ class Activity3 : AppCompatActivity() {
         }
     }
 }
+

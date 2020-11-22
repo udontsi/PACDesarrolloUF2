@@ -10,19 +10,29 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 
 class NoSeSiVivirOMorir : Service(){
-    private var mp : MediaPlayer? = null
+
     companion object {
+        var mp : MediaPlayer? = null
         const val CHANNEL_ID = "Musica Channel"
         fun startService(context: Context) {
             val startIntent = Intent(context, NoSeSiVivirOMorir::class.java)
             ContextCompat.startForegroundService(context, startIntent)
         }
-
         fun stopService(context: Context) {
             val stopIntent = Intent(context, NoSeSiVivirOMorir::class.java)
             context.stopService(stopIntent)
         }
+        fun reproducir(){
+            mp?.start()
+        }
+        fun pausa(){
+            mp?.pause()
+        }
+        fun bloquear(){
+            mp?.pause()
+        }
     }
+
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         createNotificationChannel()
         val notificationIntent = Intent(this, MainActivity::class.java)
@@ -32,7 +42,6 @@ class NoSeSiVivirOMorir : Service(){
         Thread {
             run {
                 mp = MediaPlayer.create(this, R.raw.ibai)
-                mp?.start()
             }
         }.start()
         return START_NOT_STICKY
