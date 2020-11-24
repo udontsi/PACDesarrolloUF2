@@ -18,9 +18,15 @@ class InsertDatos : AppCompatActivity() {
     override fun onResume(){
         super.onResume()
         buttonGuardar.setOnClickListener{
+
+            // Iniciamos hilo para introducir en la BBDD
+
             lifecycleScope.launch {
                 val creardb = Room.databaseBuilder(applicationContext,LibroDB::class.java,"librodb").build()
                 creardb.libroDao().insertLibro(libro = Libro(0,textTitulo.text.toString(),textAutor.text.toString(),textEdicion.text.toString().toInt()))
+
+                // Mostramos mensaje
+
                 Toast.makeText(this@InsertDatos,"Datos guardados", Toast.LENGTH_SHORT).show()
             }
             finish()

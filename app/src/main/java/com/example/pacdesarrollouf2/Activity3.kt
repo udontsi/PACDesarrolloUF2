@@ -11,13 +11,17 @@ import kotlinx.android.synthetic.main.activity_2.buttonVolver
 import kotlinx.android.synthetic.main.activity_3.*
 
 class Activity3 : AppCompatActivity() {
-    val options = arrayOf("Elegir...", "Reproducir", "Detener", "Bloquear")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_3)
     }
         override fun onResume() {
             super.onResume()
+
+            // Configuramos spinner
+
+            val options = arrayOf("Elegir...", "Reproducir", "Detener", "Bloquear")
             val option = findViewById(R.id.spinner) as Spinner
             option.adapter =ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,options)
             option.onItemSelectedListener=object:AdapterView.OnItemSelectedListener{
@@ -36,6 +40,9 @@ class Activity3 : AppCompatActivity() {
                 }
             }
         }
+
+        // Botones menu
+
         buttonStart.setOnClickListener{
             NoSeSiVivirOMorir.startService(this)
         }

@@ -19,7 +19,13 @@ class Activity2 : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Toast.makeText(this,"Entrando en Activity 2 (Datos)",Toast.LENGTH_SHORT).show()
+
+        // Botones Menu
+
         buttonCrear.setOnClickListener{
+
+            //Iniciamos hilo para crear tabla
+
             lifecycleScope.launch {
                 val creardb = Room.databaseBuilder(applicationContext,LibroDB::class.java,"librodb").build()
                 Toast.makeText(this@Activity2,"Tabla creada",Toast.LENGTH_SHORT).show()

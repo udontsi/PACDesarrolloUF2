@@ -15,6 +15,9 @@ class MostrarDatos : AppCompatActivity() {
         setContentView(R.layout.activity_mostrar_datos)
         var listaAdapter:ArrayAdapter<Libro>
         var libros = ArrayList<Libro>()
+
+        // Lanzamos hilo para query y rellenar list view
+
         lifecycleScope.launch {
             val creardb = Room.databaseBuilder(applicationContext, LibroDB::class.java, "librodb").build()
             libros = creardb.libroDao().verLibros() as ArrayList<Libro>
@@ -25,6 +28,8 @@ class MostrarDatos : AppCompatActivity() {
     }
     override fun onResume() {
         super.onResume()
+
+        // Botones menu
 
         buttonVolver.setOnClickListener {
             finish()

@@ -12,6 +12,9 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onResume() {
         super.onResume()
+
+        // Botones menu
+
         button.setOnClickListener{
             val intent = Intent(this,Activity2::class.java)
             startActivity(intent)

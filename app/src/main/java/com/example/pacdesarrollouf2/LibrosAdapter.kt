@@ -9,6 +9,8 @@ import kotlinx.android.synthetic.main.vistalibros.view.*
 
 class LibrosAdapter (private val contexto: Context,private val listalibros: List<Libro>) : ArrayAdapter<Libro> (contexto,0,listalibros){
 
+    // Adaptador listview
+
     override fun getView(posicion: Int, convertView: View?, parent: ViewGroup): View {
         val layout = LayoutInflater.from(contexto).inflate(R.layout.vistalibros,parent,false)
         val libro = listalibros[posicion]
@@ -19,8 +21,5 @@ class LibrosAdapter (private val contexto: Context,private val listalibros: List
         return layout
     }
 
-    fun actualizar() {
-        this.notifyDataSetChanged()
-    }
 }
 
