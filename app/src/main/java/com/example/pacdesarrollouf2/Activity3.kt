@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
 
 import kotlinx.android.synthetic.main.activity_2.buttonVolver
 import kotlinx.android.synthetic.main.activity_3.*
@@ -21,23 +22,24 @@ class Activity3 : AppCompatActivity() {
 
             // Configuramos spinner
 
-            val options = arrayOf("Elegir...", "Reproducir", "Detener", "Bloquear")
+            val options = mutableListOf<String>("Elegir...", "Reproducir", "Detener", "Bloquear")
             val option = findViewById(R.id.spinner) as Spinner
             option.adapter =ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,options)
             option.onItemSelectedListener=object:AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                val result = options.get(position)
-                if(result=="Reproducir"){
+                val selectedItem = parent?.getItemAtPosition(position).toString()
+                if(selectedItem.equals("Reproducir")){
                     NoSeSiVivirOMorir.reproducir()
                 }
-                if(result=="Detener"){
+                if(selectedItem.equals("Detener")){
                     NoSeSiVivirOMorir.pausa()
                 }
-                if(result=="Bloquear"){
+                if(selectedItem.equals("Bloquear")){
                     NoSeSiVivirOMorir.bloquear()
                 }
+
             }
         }
 
