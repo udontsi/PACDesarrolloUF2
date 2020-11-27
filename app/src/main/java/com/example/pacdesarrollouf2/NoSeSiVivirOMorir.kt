@@ -36,21 +36,18 @@ class NoSeSiVivirOMorir : Service() {
         // Funciones del Servicio
 
         fun reproducir(){
-            hilo.run {
-                mp?.start()
-            }
+            mp?.start()
+
         }
         fun pausa(){
-            hilo.run {
-                mp?.pause()
-            }
+            mp?.pause()
         }
         fun bloquear(){
-            hilo?.run{
+
+            Thread(Runnable{
                 mp?.pause()
                 sleep(15000)
-                mp?.start()
-            }
+                mp?.start()}).start()
 
         }
     }
@@ -65,11 +62,10 @@ class NoSeSiVivirOMorir : Service() {
         val notification: Notification = NotificationCompat.Builder(this, CHANNEL_ID).setContentTitle("Reproduciendo musicota").setContentText("No se si vivir o morir!").setSmallIcon(R.drawable.ic_launcher_foreground).setCategory(NotificationCompat.CATEGORY_STATUS).setContentIntent(pendingIntent).build()
         startForeground(1, notification)
 
-    // Lanzamos hilo servicio
-        hilo?.run {
+    // Lanzamos servicio
             mp = MediaPlayer.create(this@NoSeSiVivirOMorir, R.raw.ibai)
             mp?.start()
-        }
+
         return START_STICKY
     }
 
