@@ -16,7 +16,6 @@ class NoSeSiVivirOMorir : Service() {
 
     companion object {
         var mp : MediaPlayer? = null
-        var hilo : Thread? = null
         const val CHANNEL_ID = "Musica Channel"
 
         // Iniciamos Servicio + Notificacion
